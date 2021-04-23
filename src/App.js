@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import { Component ,Fragment } from 'react';
+import { Switch , Route } from 'react-router-dom';
+
+import OrderListPage from './Components/OrderListPage/OrderListPage';
+import PurchasedPage from './Components/PurchasedPage/PurchasedPage';
+import PendingPage from './Components/PendingPage/PendingPage';
+
+class App extends Component{
+ render(){ 
+   return(<Fragment>
+            <Switch>
+              <Route path="/purchased"  component={PurchasedPage}/>
+              <Route path="/pending"  component={PendingPage}/>
+              <Route path="/" component={OrderListPage}/>
+              
+            </Switch>
+   </Fragment>);
+ }
 }
 
 export default App;
