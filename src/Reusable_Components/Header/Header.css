@@ -1,15 +1,14 @@
-.header{
-width: 100%;
-height: 225px;
-background-color: rgb(34,34,34);
+.header {
+  width: 100%;
+  background-color: rgb(34, 34, 34);
+  padding: 23px;
 }
 
-.basket-logo{
-height: 215px;
-width: 215px;
+.basket-logo {
+  color: white;
 }
 
-.basket-logo img{
-    height: 100%;
-    width: 100%;
+.basket-icon {
+  font-size: 8em;
+  margin-bottom: 10px;
 }

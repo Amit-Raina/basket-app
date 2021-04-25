@@ -1,15 +1,14 @@
 import "./Header.css";
 import { Fragment } from "react";
 
-import Basket_logo from "../../assets/basket_logo.png";
-
 const Header = () => {
   return (
     <Fragment>
       <div className="header">
         <center>
           <div className="basket-logo">
-            <img src={Basket_logo} alt="basket-logo.png" />
+            <i className="fa fa-shopping-basket fa-6 basket-icon"></i>
+            <h2>Hello, Basket!</h2>
           </div>
         </center>
       </div>

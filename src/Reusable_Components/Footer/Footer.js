@@ -42,19 +42,19 @@ class Footer extends Component {
         
       <Fragment>
         <div className="footer">
-          <div className="footer-options">
+          
             <NavLink to="/" style={{ textDecoration: "none" }}>
               <p className={this.state.orderPageCSS}>All</p>
             </NavLink>
-            <p>,&nbsp;</p>
+            <p className="nav-options">,&nbsp;</p>
             <NavLink to="/pending" style={{ textDecoration: "none" }}>
               <p className={this.state.pendingPageCSS}>Pending</p>
             </NavLink>
-            <p>,&nbsp;</p>
+            <p className="nav-options">,&nbsp;</p>
             <NavLink to="/purchased" style={{ textDecoration: "none" }}>
               <p className={this.state.purchasedPageCSS}>Purchased</p>
             </NavLink>
-          </div>
+          
         </div>
       </Fragment>
     );

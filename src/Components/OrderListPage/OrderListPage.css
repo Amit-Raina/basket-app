@@ -10,11 +10,48 @@
 }
 
 .filter-div-box {
-  
-  margin:auto;
+  margin: 30px auto;
+  padding: 20px;
   background-color: #ffc0cb;
-  width: 40%;
-  height: 60px;
+  width: 50%;
   border-radius: 4px;
   border: 1px solid red;
+}
+
+.filter-div-box input{
+  border: 0px;
+  padding: 10px;
+  width: 100%;
+}
+
+.list-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.list-container h3{
+  display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.groceries-list{
+  width: 30%;
+}
+
+.basket-list{
+  width: 30%;
+}
+
+.basket-remove{
+  float: right;
+  color: #ffc0cb;
+
+}
+.basket-remove:hover{
+  color: red;
 }
