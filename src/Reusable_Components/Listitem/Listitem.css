@@ -13,7 +13,7 @@
   background-color: #efefef;
 }
 
-.list-item::before {
+.list-itemAdd::before {
   margin-right: 15px;
   font-family: FontAwesome;
   content: "\f196";
@@ -21,7 +21,20 @@
   color: white;
   font-size: 1.2em;
 }
-.list-item:hover::before {
+.list-itemAdd:hover::before {
   content: "\f0fe";
   color: green;
+}
+
+.list-itemRemove::before {
+  margin-right: 15px;
+  font-family: FontAwesome;
+  content: "\f147";
+  font-weight: bold;
+  color: white;
+  font-size: 1.2em;
+}
+.list-itemRemove:hover::before {
+  content: "\f146";
+  color: red;
 }

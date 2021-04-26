@@ -1,14 +1,30 @@
 import { Fragment } from "react";
 import "./Listitem.css";
 
-const Listitem = (props) => {
+export const ListitemAdd = (props) => {
   return (
     <Fragment>
-      <li className="list-item" style={props.style}>
+      <li
+        className="list-item list-itemAdd"
+        style={props.style}
+        onClick={props.Clicked}
+      >
         {props.children}
       </li>
     </Fragment>
   );
 };
 
-export default Listitem;
+export const ListitemRemove = (props) => {
+  return (
+    <Fragment>
+      <li
+        className="list-item list-itemRemove"
+        style={props.style}
+        onClick={props.Clicked}
+      >
+        {props.children}
+      </li>
+    </Fragment>
+  );
+};
