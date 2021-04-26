@@ -20,8 +20,9 @@ export const ListitemRemove = (props) => {
     <Fragment>
       <li
         className="list-item list-itemRemove"
-        style={props.style}
+        style={{ ...props.style , textDecoration: props.checked ? "line-through": "" }}
         onClick={props.Clicked}
+
       >
         {props.children}
       </li>

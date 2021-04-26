@@ -8,82 +8,51 @@ import {
   ListitemRemove,
 } from "../../Reusable_Components/Listitem/Listitem";
 
-class OrderListPage extends Component {
-  state = {
-    groceries_list: [
-      "Strawberry",
-      "Blueberry",
-      "Orange",
-      "Banana",
-      "Apple",
-      "Carrot",
-      "Celery",
-      "Mushroom",
-      "Green Pepper",
-      "Eggs",
-      "Cheese",
-      "Butter",
-      "Chicken",
-      "Beef",
-      "Pork",
-      "Fish",
-      "Rice",
-      "Pasta",
-      "Bread",
-    ],
-    Cart_list: { Strawberry: 1, Carrot: 1, Eggs: 1, Chicken: 1, Rice: 1 },
-    filter_String : ""
-  };
+import { connect } from "react-redux";
+import {
+  filterData,
+  emptyBasket,
+  addElement,
+  checkElement,
+} from "../../actions/index";
 
+class OrderListPage extends Component {
   emptyBasket = () => {
-    this.setState({
-      Cart_list: {},
-    });
+    this.props.emptyBasket();
   };
 
   addListElement = (value) => {
-    const count =
-      (this.state.Cart_list[value] ? this.state.Cart_list[value] : 0) + 1;
-    this.setState({
-      Cart_list: { ...this.state.Cart_list, [value]: count },
-    });
+    this.props.addElement(value);
   };
 
-  removeListElement = (value) => {
-    const count = this.state.Cart_list[value] - 1;
-    if (count <= 0) {
-      const newCart = this.state.Cart_list;
-      delete newCart[value];
-      this.setState({
-        Cart_list: newCart
-      })
-    } else {
-      this.setState({
-        Cart_list: { ...this.state.Cart_list, [value]: count } ,
-      });
-    }
+  checkListElement = (value) => {
+    this.props.checkElement(value);
   };
 
   getFilterValue = (data) => {
-    this.setState({
-      filter_String:data
-    })
-    
-  }
+    this.props.filterData(data);
+  };
 
   render() {
-    
-    let filterList = this.state.groceries_list;
+    let filterList = this.props.basketData.groceries_list;
     filterList = filterList.filter((data) => {
-      return data.toLowerCase().includes(this.state.filter_String.toLowerCase());
-    })
+      return data
+        .toLowerCase()
+        .includes(this.props.basketData.filter_String.toLowerCase());
+    });
 
     return (
       <Fragment>
         <div className="main-screen">
           <Header />
           <div className="filter-div-box">
-            <input type="text" placeholder="filter for e.g. Apple" onChange={(event)=>{this.getFilterValue(event.target.value)}}></input>
+            <input
+              type="text"
+              placeholder="filter for e.g. Apple"
+              onChange={(event) => {
+                this.getFilterValue(event.target.value);
+              }}
+            ></input>
           </div>
           <div className="list-container">
             <div className="groceries-list">
@@ -112,15 +81,18 @@ class OrderListPage extends Component {
                 ></i>
               </h3>
 
-              {Object.keys(this.state.Cart_list).length ? (
-                Object.keys(this.state.Cart_list).map((data, index) => {
-                  return (
-                    <ListitemRemove
-                      key={index}
-                      Clicked={() => this.removeListElement(data)}
-                    >{`${this.state.Cart_list[data]} ${data}`}</ListitemRemove>
-                  );
-                })
+              {Object.keys(this.props.basketData.Cart_list).length ? (
+                Object.keys(this.props.basketData.Cart_list).map(
+                  (data, index) => {
+                    return (
+                      <ListitemRemove
+                        key={index}
+                        Clicked={() => this.checkListElement(data)}
+                        checked={this.props.basketData.checked.includes(data)}
+                      >{`${this.props.basketData.Cart_list[data]} ${data}`}</ListitemRemove>
+                    );
+                  }
+                )
               ) : (
                 <ListitemRemove>Your basket is empty!</ListitemRemove>
               )}
@@ -132,4 +104,27 @@ class OrderListPage extends Component {
     );
   }
 }
-export default OrderListPage;
+
+const mapStateToProps = (state) => {
+  return {
+    basketData: state,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filterData: (keyword) => {
+      dispatch(filterData(keyword));
+    },
+    emptyBasket: () => {
+      dispatch(emptyBasket());
+    },
+    addElement: (item) => {
+      dispatch(addElement(item));
+    },
+    checkElement: (item) => {
+      dispatch(checkElement(item));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrderListPage);
