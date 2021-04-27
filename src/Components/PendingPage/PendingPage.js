@@ -3,6 +3,7 @@ import "./PendingPage.css";
 
 import Header from "../../Reusable_Components/Header/Header";
 import Footer from "../../Reusable_Components/Footer/Footer";
+import FilterBox from "../../Reusable_Components/FilterBox/FilterBox";
 import {
   ListitemAdd,
   ListitemRemove,
@@ -40,20 +41,23 @@ class PendingPage extends Component {
         .toLowerCase()
         .includes(this.props.basketData.filter_String.toLowerCase());
     });
- 
+
+    let pendingItem = {};
+    for (let item in this.props.basketData.Cart_list) {
+      if (!this.props.basketData.checked.includes(item)) {
+        pendingItem[item] = this.props.basketData.Cart_list[item];
+      }
+    }
+
     return (
       <Fragment>
         <div className="main-screen">
           <Header />
-          <div className="filter-div-box">
-            <input
-              type="text"
-              placeholder="filter for e.g. Apple"
-              onChange={(event) => {
-                this.getFilterValue(event.target.value);
-              }}
-            ></input>
-          </div>
+          <FilterBox
+            getValue={(event) => {
+              this.getFilterValue(event.target.value);
+            }}
+          />
           <div className="list-container">
             <div className="groceries-list">
               <h3>
@@ -81,18 +85,16 @@ class PendingPage extends Component {
                 ></i>
               </h3>
 
-              {Object.keys(this.props.basketData.Cart_list).length ? (
-                Object.keys(this.props.basketData.Cart_list).map(
-                  (data, index) => {
-                    return (
-                      <ListitemRemove
-                        key={index}
-                        Clicked={() => this.checkListElement(data)}
-                        checked={this.props.basketData.checked.includes(data)}
-                      >{`${this.props.basketData.Cart_list[data]} ${data}`}</ListitemRemove>
-                    );
-                  }
-                )
+              {Object.keys(pendingItem).length ? (
+                Object.keys(pendingItem).map((data, index) => {
+                  return (
+                    <ListitemRemove
+                      key={index}
+                      Clicked={() => this.checkListElement(data)}
+                      checked={this.props.basketData.checked.includes(data)}
+                    >{`${this.props.basketData.Cart_list[data]} ${data}`}</ListitemRemove>
+                  );
+                })
               ) : (
                 <ListitemRemove>Your basket is empty!</ListitemRemove>
               )}
@@ -125,6 +127,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PendingPage);

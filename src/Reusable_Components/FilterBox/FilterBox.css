@@ -1,0 +1,14 @@
+.filter-div-box {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffc0cb;
+    width: 50%;
+    border-radius: 4px;
+    border: 1px solid red;
+  }
+  
+  .filter-div-box input{
+    border: 0px;
+    padding: 10px;
+    width: 100%;
+  }

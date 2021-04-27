@@ -3,6 +3,7 @@ import "./OrderListPage.css";
 
 import Header from "../../Reusable_Components/Header/Header";
 import Footer from "../../Reusable_Components/Footer/Footer";
+import FilterBox from "../../Reusable_Components/FilterBox/FilterBox";
 import {
   ListitemAdd,
   ListitemRemove,
@@ -45,15 +46,11 @@ class OrderListPage extends Component {
       <Fragment>
         <div className="main-screen">
           <Header />
-          <div className="filter-div-box">
-            <input
-              type="text"
-              placeholder="filter for e.g. Apple"
-              onChange={(event) => {
-                this.getFilterValue(event.target.value);
-              }}
-            ></input>
-          </div>
+          <FilterBox
+            getValue={(event) => {
+              this.getFilterValue(event.target.value);
+            }}
+          />
           <div className="list-container">
             <div className="groceries-list">
               <h3>

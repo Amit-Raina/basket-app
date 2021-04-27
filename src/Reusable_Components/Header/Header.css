@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   background-color: rgb(34, 34, 34);
-  padding: 23px;
+  padding: 30px;
 }
 
 .basket-logo {
@@ -10,5 +10,5 @@
 
 .basket-icon {
   font-size: 8em;
-  margin-bottom: 10px;
+  margin-bottom: 13px;
 }

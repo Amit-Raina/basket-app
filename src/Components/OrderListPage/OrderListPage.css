@@ -9,50 +9,34 @@
   background-color: rgb(255, 255, 255);
 }
 
-.filter-div-box {
-  margin: 30px auto;
-  padding: 20px;
-  background-color: #ffc0cb;
-  width: 50%;
-  border-radius: 4px;
-  border: 1px solid red;
-}
-
-.filter-div-box input{
-  border: 0px;
-  padding: 10px;
-  width: 100%;
-}
-
-.list-container{
+.list-container {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 15px;
 }
 
-.list-container h3{
+.list-container h3 {
   display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
-.groceries-list{
+.groceries-list {
   width: 30%;
 }
 
-.basket-list{
+.basket-list {
   width: 30%;
 }
 
-.basket-remove{
+.basket-remove {
   float: right;
   color: #ffc0cb;
-
 }
-.basket-remove:hover{
+.basket-remove:hover {
   color: red;
 }
