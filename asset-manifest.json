@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/basket-app/static/css/main.4517dc77.chunk.css",
+    "main.js": "/basket-app/static/js/main.cc96dfb1.chunk.js",
+    "main.js.map": "/basket-app/static/js/main.cc96dfb1.chunk.js.map",
+    "runtime-main.js": "/basket-app/static/js/runtime-main.4965c05f.js",
+    "runtime-main.js.map": "/basket-app/static/js/runtime-main.4965c05f.js.map",
+    "static/js/2.dcee9764.chunk.js": "/basket-app/static/js/2.dcee9764.chunk.js",
+    "static/js/2.dcee9764.chunk.js.map": "/basket-app/static/js/2.dcee9764.chunk.js.map",
+    "static/js/3.37fa2793.chunk.js": "/basket-app/static/js/3.37fa2793.chunk.js",
+    "static/js/3.37fa2793.chunk.js.map": "/basket-app/static/js/3.37fa2793.chunk.js.map",
+    "index.html": "/basket-app/index.html",
+    "static/css/main.4517dc77.chunk.css.map": "/basket-app/static/css/main.4517dc77.chunk.css.map",
+    "static/js/2.dcee9764.chunk.js.LICENSE.txt": "/basket-app/static/js/2.dcee9764.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4965c05f.js",
+    "static/js/2.dcee9764.chunk.js",
+    "static/css/main.4517dc77.chunk.css",
+    "static/js/main.cc96dfb1.chunk.js"
+  ]
+}
